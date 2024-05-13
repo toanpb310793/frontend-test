@@ -1,0 +1,43 @@
+// Responsive utils
+$xl-width: 1600px; /* Extra Large devices (desktops, less than 1600px) */
+$lg-width: 1200px; /* Large devices (desktops, less than 1200px) */
+$md-width: 992px; /* Medium devices (tablets, less than 992px) */
+$sm-width: 768px; /* Small devices (landscape phones, less than 768px) */
+$xs-width: 576px; /* Extra small devices (portrait phones, less than 576px) */
+
+// Transition durations
+$transition-very-fast-duration: 0.05s;
+$transition-fast-duration: 0.1s;
+$transition-middle-duration: 0.2s;
+$transition-slow-duration: 0.3s;
+$transition-very-slow-duration: 1s;
+
+// Transitions
+@mixin transition-very-fast($property-name: all, $timing-function: ease-in-out) {
+  transition: $property-name $transition-very-fast-duration $timing-function;
+}
+@mixin transition-fast($property-name: all, $timing-function: ease-in-out) {
+  transition: $property-name $transition-fast-duration $timing-function;
+}
+@mixin transition-middle($property-name: all, $timing-function: ease-in-out) {
+  transition: $property-name $transition-middle-duration $timing-function;
+}
+@mixin transition-slow($property-name: all, $timing-function: ease-in-out) {
+  transition: $property-name $transition-slow-duration $timing-function;
+}
+@mixin transition-very-slow($property-name: all, $timing-function: ease-in-out) {
+  transition: $property-name $transition-very-slow-duration $timing-function;
+}
+
+@mixin position-fixed-fullscreen {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+@mixin display-flex-column {
+  display: flex;
+  flex-direction: column;
+}

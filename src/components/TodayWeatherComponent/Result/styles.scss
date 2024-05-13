@@ -1,0 +1,243 @@
+@import '../../../resources/mixins';
+
+.twa-result__container {
+  flex: 1 1 auto;
+  margin: 0 auto;
+  max-width: var(--content--max-width, 1vw);
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  width: 100%;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .result__cloud-img {
+    aspect-ratio: 2.25;
+    margin-left: auto;
+    max-width: 300px;
+    position: relative;
+    width: 40vw;
+    z-index: 2;
+
+    &::after {
+      aspect-ratio: 1;
+      background-image: url('/resources/images/sun.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  .result__container {
+    background-color: var(--result-container--bg-color);
+    border: 1px solid var(--result-container--border-color);
+    border-radius: 40px;
+    color: var(--result-container--color);
+    height: fit-content;
+    padding: 46px 50px 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .result__selected-location {
+    display: grid;
+    font-size: 16px;
+    gap: 10px;
+    grid-template-areas:
+      'title title title title'
+      'temp temp temp temp'
+      'temp-range temp-range temp-range temp-range'
+      'city timestamp humidity main-weather'
+      'description description description description';
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(4, auto);
+    justify-content: space-between;
+    line-height: 22px;
+
+    .selected-location__title {
+      grid-area: title;
+      height: 22px;
+    }
+
+    .selected-location__temp {
+      color: var(--result-temperature--color);
+      font-size: 81px;
+      font-weight: 700;
+      grid-area: temp;
+      height: 81px;
+      line-height: 81px;
+    }
+
+    .selected-location__temp-range {
+      grid-area: temp-range;
+      height: 22px;
+    }
+
+    .selected-location__city {
+      color: var(--result-location-detail--color);
+      font-weight: 700;
+      grid-area: city;
+      height: 22px;
+    }
+
+    .selected-location__timestamp {
+      color: var(--result-location-detail--color);
+      grid-area: timestamp;
+      height: 22px;
+    }
+
+    .selected-location__humidity {
+      color: var(--result-location-detail--color);
+      grid-area: humidity;
+      height: 22px;
+    }
+
+    .selected-location__main-weather {
+      color: var(--result-location-detail--color);
+      grid-area: main-weather;
+      height: 22px;
+    }
+
+    .selected-location__description {
+      color: var(--result-location-detail--color);
+      grid-area: description;
+      min-height: 22px;
+      opacity: 0.7;
+    }
+  }
+
+  .result__list-item {
+    background-color: var(--result-history--bg-color);
+    border-radius: 24px;
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 26px;
+    padding: 24px;
+
+    .list-item__container {
+      gap: 18px;
+      margin-top: 26px;
+      @include display-flex-column;
+    }
+
+    .list-item__item {
+      align-items: center;
+      background-color: var(--result-history-item--bg-color);
+      border-radius: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px 16px;
+
+      .item__info {
+        align-items: center;
+        display: flex;
+        flex: 1 1 auto;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: space-between;
+      }
+
+      .item__timestamp {
+        font-size: 14px;
+        line-height: 20px;
+        margin-left: auto;
+      }
+
+      .item__actions {
+        display: flex;
+        flex: 0 0 auto;
+        gap: 8px;
+        margin-left: auto;
+
+        .ant-btn {
+          background: var(--result-action--bg-color);
+          border-color: var(--result-action--border-color, transparent);
+
+          .ant-btn-icon {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $xs-width) {
+  .twa-result__container {
+    .result__container {
+      padding: 24px 24px 12px;
+    }
+
+    .result__selected-location {
+      font-size: 14px;
+      grid-template-areas:
+        'title title'
+        'temp main-weather'
+        'temp-range humidity'
+        'city timestamp'
+        'description description';
+      grid-template-columns: repeat(2, auto);
+      grid-template-rows: repeat(4, auto);
+      line-height: 20px;
+
+      .selected-location__timestamp,
+      .selected-location__humidity,
+      .selected-location__main-weather {
+        height: fit-content;
+        height: 20px;
+        margin-top: auto;
+        text-align: right;
+      }
+
+      .selected-location__temp {
+        font-size: 50px;
+        height: 50px;
+        line-height: 50px;
+      }
+
+      .selected-location__title,
+      .selected-location__temp-range,
+      .selected-location__city {
+        height: 20px;
+      }
+
+      .selected-location__description {
+        min-height: 20px;
+      }
+    }
+
+    .result__list-item {
+      margin-top: 20px;
+      padding: 20px;
+
+      .list-item__item {
+        padding: 12px 10px;
+
+        .item__info {
+          align-items: start;
+          flex-direction: column;
+          gap: 2px;
+        }
+
+        .item__city {
+          font-size: 14px;
+          line-height: 20px;
+        }
+
+        .item__timestamp {
+          font-size: 10px;
+          line-height: 14px;
+          margin-left: unset;
+        }
+      }
+    }
+  }
+}

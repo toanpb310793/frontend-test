@@ -1,0 +1,122 @@
+{
+  "root": true, // Make sure eslint picks up the config at the root of the directory
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020, // Use the latest ecmascript standard
+    "sourceType": "module", // Allows using import/export statements
+    "ecmaFeatures": {
+      "jsx": true, // Enable JSX since we"re using React
+      "tsx": true,
+    },
+    "project": "./tsconfig.json",
+    //  "tsconfigRootDir":"./frontend"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+      },
+    },
+  },
+  "env": {
+    "browser": true, // Enables browser globals like window and document
+    "amd": true, // Enables require() and define() as global variables as per the amd spec.
+    "node": true, // Enables Node.js global variables and Node.js scoping.
+    "commonjs": true,
+  },
+  "plugins": ["@typescript-eslint/eslint-plugin", "simple-import-sort"],
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "eslint:recommended",
+    // always put prettier at last
+    "prettier/@typescript-eslint",
+    "prettier",
+  ],
+  "rules": {
+    // "prettier/prettier": ["error", {}, { usePrettierrc: true }], // Use our .prettierrc file as source
+    // NextJs specific fix: suppress errors for missing "import React" in files for nextjs
+    "react/react-in-jsx-scope": "off",
+    // NextJs specific fix: allow jsx syntax in js files
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }], // should add ".ts" if typescript project
+    "react/display-name": 1,
+    "semi": "warn",
+    "indent": ["off", 2],
+    "no-use-before-define": "off",
+    "no-cond-assign": ["error", "always"],
+    "react-hooks/rules-of-hooks": "error",
+    // disable now, but enable in the future
+    "one-var": ["error", "never"],
+    "react-hooks/exhaustive-deps": "off",
+    "init-declarations": "off",
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-inline-comments": "off",
+    "object-shorthand": "off",
+    "comma-dangle": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/extensions": "off",
+    "arrow-body-style": "off",
+    "camelcase": "warn",
+    "object-curly-spacing": "off",
+    "max-len": [1, { "code": 120 }],
+    "no-useless-constructor": ["off"],
+    "react/prefer-stateless-function": ["off"],
+    "import/prefer-default-export": ["off"],
+    "import/no-named-as-default": ["warn"],
+    "@typescript-eslint/no-unused-vars": [2, { "args": "none" }],
+    "no-unused-vars": [2, { "args": "none" }],
+    "no-undef": ["off"],
+    "react/forbid-prop-types": ["off"],
+    "spaced-comment": ["warn"],
+    "no-trailing-spaces": ["warn"],
+    "class-methods-use-this": ["warn"],
+    "react/jsx-no-bind": ["warn"],
+    "no-underscore-dangle": ["warn"],
+    "prefer-destructuring": ["error", { "VariableDeclarator": { "object": true } }],
+    "no-param-reassign": ["off"],
+    "arrow-parens": ["warn"],
+    "function-paren-newline": ["warn"],
+    "prefer-arrow-callback": ["warn"],
+    "no-plusplus": ["off"],
+    "react/jsx-boolean-value": ["warn"],
+    "jsx-a11y/anchor-is-valid": ["off"],
+    "lines-between-class-members": ["off"],
+    "import/no-duplicates": ["off"],
+    "react/destructuring-assignment": ["warn"],
+    "import/no-cycle": ["warn"],
+    "consistent-return": ["off"],
+    "jsx-a11y/no-static-element-interactions": ["off"],
+    "jsx-a11y/click-events-have-key-events": ["off"],
+    "react/no-array-index-key": ["off"],
+    "import/no-named-default": ["off"],
+    "dot-notation": ["off"],
+    "no-continue": ["off"],
+    "react/self-closing-comp": ["off"],
+    "no-case-declarations": ["off"],
+    "no-restricted-syntax": ["error", "BinaryExpression[operator='in']"],
+    "prefer-rest-params": ["off"],
+    "no-lonely-if": ["off"],
+    "no-alert": "warn",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "error",
+    "react/static-property-placement": "off",
+    "react/prop-types": "off", // Since we do not use prop-types
+    "react/require-default-props": "off", // Since we do not use prop-types
+    "react/jsx-props-no-spreading": ["warn", { "custom": "ignore" }],
+    "no-bitwise": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "react/jsx-wrap-multilines": "off",
+  },
+  "overrides": [
+    {
+      "files": "src/**/*",
+    },
+  ],
+}

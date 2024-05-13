@@ -1,0 +1,32 @@
+:root {
+  --bg-image: url('/resources/images/bg-light.png');
+  --content--max-width: 700px;
+  --search-input--bg-color: rgba(255, 255, 255, 0.2);
+  --search-button--bg-color: #6c40b5;
+  --result-container--bg-color: rgba(255, 255, 255, 0.2);
+  --result-container--border-color: rgba(255, 255, 255, 0.5);
+  --result-container--color: #000;
+  --result-temperature--color: #6c40b5;
+  --result-location-detail--color: #666;
+  --result-history--bg-color: rgba(255, 255, 255, 0.2);
+  --result-history-item--bg-color: rgba(255, 255, 255, 0.2);
+  --result-action--bg-color: #fff;
+}
+
+:root .twa-layout__container--dark {
+  --bg-image: url('/resources/images/bg-dark.png');
+  --search-input--bg-color: rgba(26, 26, 26, 0.5);
+  --search-input--color: #fff;
+  --search-input-placeholder--color: rgba(255, 255, 255, 0.3);
+  --search-button--bg-color: #28124d;
+  --result-container--bg-color: rgba(26, 26, 26, 0.3);
+  --result-container--border-color: transparent;
+  --result-container--color: #fff;
+  --result-temperature--color: #fff;
+  --result-location-detail--color: #fff;
+  --result-timestamp--color: rgba(255, 255, 255, 0.5);
+  --result-history--bg-color: rgba(26, 26, 26, 0.3);
+  --result-history-item--bg-color: rgba(26, 26, 26, 0.5);
+  --result-action--bg-color: transparent;
+  --result-action--border-color: rgba(255, 255, 255, 0.4);
+}

@@ -1,0 +1,8 @@
+@import '../../resources/mixins';
+
+.twa-content__container {
+  gap: 18px;
+  height: 100%;
+  width: 100%;
+  @include display-flex-column;
+}

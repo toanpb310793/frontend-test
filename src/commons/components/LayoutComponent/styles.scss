@@ -1,0 +1,20 @@
+@import '../../../resources/mixins';
+
+.twa-layout__container {
+  background-image: var(--bg-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 26px;
+  position: relative;
+  width: 100%;
+  @include transition-middle;
+}
+
+@media (max-width: $xs-width) {
+  .twa-layout__container {
+    padding: 18px;
+  }
+}
